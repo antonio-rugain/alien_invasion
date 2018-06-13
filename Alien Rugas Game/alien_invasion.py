@@ -1,6 +1,7 @@
 import sys
 import pygame
 from settings import Settings
+from ship import Ship
 
 
 def run_game():    # Inicializa o jogo, cria um objeto tela, e as configuracoes
@@ -8,6 +9,8 @@ def run_game():    # Inicializa o jogo, cria um objeto tela, e as configuracoes
     minha_configuracao = Settings()
     screen = pygame.display.set_mode((minha_configuracao.screen_width, minha_configuracao.screen_height))
     pygame.display.set_caption("Alien Invasion")
+
+    ship = Ship(screen) #constroi uma instancia de nave
 
 
 
@@ -18,9 +21,7 @@ def run_game():    # Inicializa o jogo, cria um objeto tela, e as configuracoes
             if event.type == pygame.QUIT:
                 sys.exit()
         screen.fill(minha_configuracao.bg_color) #redesenha a tela, cada vez que passa pelo loop
-
-
-
+        ship.blitme()
         pygame.display.flip()    # fazendo o rabisco mais recente na tela
 
 run_game()
