@@ -1,11 +1,19 @@
 import sys
 import pygame
 
-def check_events():
-"""responde ao pressionar mouse e teclado"""
+def check_events(ship):
+    """responde ao pressionar mouse e teclado"""
     for event in pygame.event.get():
+        print(event)
         if event.type == pygame.QUIT:
             sys.exit()
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_RIGHT:
+            # Mover a nave para a direita
+                ship.rect.centerx += 1
+            if event.key == pygame.K_LEFT:
+            # Mover a nave para a esquerda
+                ship.rect.centerx -= 1
 
 
 def update_screen(minha_configuracao, screen, ship):

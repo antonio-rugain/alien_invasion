@@ -1,5 +1,6 @@
-import sys
+
 import pygame
+import game_functions as gf
 from settings import Settings
 from ship import Ship
 
@@ -14,14 +15,12 @@ def run_game():    # Inicializa o jogo, cria um objeto tela, e as configuracoes
 
 
 
-# Iniciando o loop principal do jogo
+    # Iniciando o loop principal do jogo
 
     while True:  # Aguardando eventos do mouse/teclado
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
-        screen.fill(minha_configuracao.bg_color) #redesenha a tela, cada vez que passa pelo loop
-        ship.blitme()
-        pygame.display.flip()    # fazendo o rabisco mais recente na tela
+
+        gf.check_events(ship)
+        gf.update_screen(minha_configuracao, screen, ship)
+
 
 run_game()

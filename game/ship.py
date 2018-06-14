@@ -4,11 +4,11 @@ class Ship():
         """Inicializar a nave e settar sua posicao inicial"""
         self.screen = screen
 
-# Carrega a imagem da nave e pega o seu retangulo(rect)
+        # Carrega a imagem da nave e pega o seu retangulo(rect)
         self.image = pygame.image.load('images/ship.bmp')
         self.rect = self.image.get_rect()  #refere-se a navinha
         self.screen_rect = screen.get_rect()
-# Inicia cada nave nova no centro , e no fim da tela
+        # Inicia cada nave nova no centro , e no fim da tela
         self.rect.centerx = self.screen_rect.centerx
         self.rect.bottom = self.screen_rect.bottom
 
