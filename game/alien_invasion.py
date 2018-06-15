@@ -9,9 +9,9 @@ def run_game():    # Inicializa o jogo, cria um objeto tela, e as configuracoes
     pygame.init()
     minha_configuracao = Settings()
     screen = pygame.display.set_mode((minha_configuracao.screen_width, minha_configuracao.screen_height))
-    pygame.display.set_caption("Alien Invasion")
+    pygame.display.set_caption("Alien Invasion do Rugas")
 
-    ship = Ship(screen) #constroi uma instancia de nave
+    ship = Ship(minha_configuracao, screen) #constroi uma instancia de nave
 
 
 
