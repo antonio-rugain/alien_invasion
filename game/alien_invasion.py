@@ -20,6 +20,7 @@ def run_game():    # Inicializa o jogo, cria um objeto tela, e as configuracoes
     while True:  # Aguardando eventos do mouse/teclado
 
         gf.check_events(ship)
+        ship.update()
         gf.update_screen(minha_configuracao, screen, ship)
 
 

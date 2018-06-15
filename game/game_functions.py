@@ -10,10 +10,23 @@ def check_events(ship):
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RIGHT:
             # Mover a nave para a direita
-                ship.rect.centerx += 1
-            if event.key == pygame.K_LEFT:
-            # Mover a nave para a esquerda
-                ship.rect.centerx -= 1
+                ship.moving_right = True
+                ship.rect.centerx += 2
+
+            elif event.key == pygame.K_LEFT:
+                # Mover a nave para a esquerda
+                ship.rect.centerx -= 2
+                ship.moving_left = True
+
+        elif event.type == pygame.KEYUP:
+            if event.key == pygame.K_RIGHT:
+                ship.moving_right = False
+
+            elif event.key == pygame.K_LEFT:
+                ship.moving_left = False
+
+
+
 
 
 def update_screen(minha_configuracao, screen, ship):
