@@ -3,6 +3,7 @@ import pygame
 import game_functions as gf
 from settings import Settings
 from ship import Ship
+from pygame.sprite import Group
 
 
 def run_game():    # Inicializa o jogo, cria um objeto tela, e as configuracoes
@@ -12,6 +13,8 @@ def run_game():    # Inicializa o jogo, cria um objeto tela, e as configuracoes
     pygame.display.set_caption("Alien Invasion do Rugas")
 
     ship = Ship(minha_configuracao, screen) #constroi uma instancia de nave
+    # Cria um grupo para guardar balas
+    bullets = Group()
 
 
 
@@ -19,9 +22,10 @@ def run_game():    # Inicializa o jogo, cria um objeto tela, e as configuracoes
 
     while True:  # Aguardando eventos do mouse/teclado
 
-        gf.check_events(ship)
+        gf.check_events(minha_configuracao, screen, ship, bullets)
         ship.update()
-        gf.update_screen(minha_configuracao, screen, ship)
+        bullets.update()
+        gf.update_screen(minha_configuracao, screen, ship, bullets)
 
 
 run_game()

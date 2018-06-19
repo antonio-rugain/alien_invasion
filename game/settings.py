@@ -5,3 +5,9 @@ class Settings():   #classe que guarda as configuraçoes do jogo
         self.screen_height =700
         self.bg_color = (230, 230, 230)
         self.ship_speed_factor = 2.0
+
+        # Configs da bala
+        self.bullet_speed_factor = 1
+        self.bullet_width = 3
+        self.bullet_height = 15
+        self.bullet_color = 60, 60, 60
