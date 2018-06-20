@@ -21,11 +21,11 @@ def run_game():    # Inicializa o jogo, cria um objeto tela, e as configuracoes
     # Iniciando o loop principal do jogo
 
     while True:  # Aguardando eventos do mouse/teclado
-
+        gf.update_screen(minha_configuracao, screen, ship, bullets)
         gf.check_events(minha_configuracao, screen, ship, bullets)
         ship.update()
-        bullets.update()
-        gf.update_screen(minha_configuracao, screen, ship, bullets)
+        gf.update_bullets(bullets)
+
 
 
 run_game()

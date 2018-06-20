@@ -37,14 +37,29 @@ def check_keydown_events(event, minha_configuracao, screen, ship, bullets):
 
     elif event.key == pygame.K_SPACE:
         # Create a new bullet and add it to the bullets group.
+        fire_bullet(minha_configuracao, screen, ship, bullets)
+
+def fire_bullet(minha_configuracao, screen, ship, bullets):
+    """Atira a bala apenas se o limite nao tiver sido atingido"""
+    if (len(bullets)-2) < minha_configuracao.bullets_allowed:
         new_bullet = Bullet(minha_configuracao, screen, ship)
         bullets.add(new_bullet)
 
 
 
 def check_keyup_events(event, ship):
-    """Respond to key releases."""
+    """Responde ao soltar da tecla"""
     if event.key == pygame.K_RIGHT:
         ship.moving_right = False
     elif event.key == pygame.K_LEFT:
         ship.moving_left = False
+
+
+def update_bullets(bullets):
+    """Atualiza a posicao das balas e da fim as antigas"""
+    # Update bullet positions.
+    bullets.update()
+    # Dar fim as balas que ja desapareceram
+    for bullet in bullets.copy():
+        if bullet.rect.bottom <= 0:
+            bullets.remove(bullet)
